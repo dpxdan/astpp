@@ -31,6 +31,9 @@ function process_cdr($data, $db, $logger, $decimal_points, $config) {
 	
 	// FS CDR variables
 	$dataVariable = $data ['variables'];
+	
+	// Use Milliseconds to calculate the billing of calls
+	$dataVariable['billsec'] = ceil($dataVariable['billmsec'] / 1000);
 
 	//Added condition to remove bad cdr entries	
 	if ($dataVariable ['callstart'] == ""){return;}
