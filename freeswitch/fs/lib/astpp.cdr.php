@@ -33,7 +33,7 @@ function process_cdr($data, $db, $logger, $decimal_points, $config) {
 	$dataVariable = $data ['variables'];
 	
 	// Use Milliseconds to calculate the billing of calls
-	$dataVariable['billsec'] = round($dataVariable['billmsec'] / 1000);
+	$dataVariable['billsec'] = ceil($dataVariable['billmsec'] / 1000);
 
 	//Added condition to remove bad cdr entries	
 	if ($dataVariable ['callstart'] == ""){return;}
